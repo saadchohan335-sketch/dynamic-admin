@@ -976,3 +976,175 @@ button:disabled {
     transform: translateY(0);
   }
 }
+/* ===== Compact Admin Pages ===== */
+
+/* Admin content ko corners ke qareeb lana */
+.dyn-content .admin-page {
+  padding: 16px 20px;
+}
+
+.dyn-content .admin-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Headers ki extra spacing kam */
+.admin-header {
+  margin-bottom: 14px;
+}
+
+.admin-header h1 {
+  margin-bottom: 4px;
+}
+
+/* Add Product aur Edit Product */
+.admin-form {
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+.admin-form .admin-section {
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.admin-form .admin-section h2 {
+  margin-bottom: 8px;
+}
+
+.admin-divider {
+  margin: 10px 0;
+}
+
+/* Edit Product card */
+.product-card {
+  padding: 14px;
+}
+
+.product-card input,
+.product-card textarea {
+  margin: 5px 0 10px;
+  padding: 10px;
+}
+
+/* Buttons ki extra spacing */
+.admin-actions {
+  margin-top: 12px;
+  padding-top: 12px;
+  gap: 8px;
+}
+
+/* Products List */
+.pl-header {
+  margin-bottom: 12px;
+}
+
+.pl-box {
+  padding: 14px;
+}
+
+.pl-filters {
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.pl-table th {
+  padding: 12px 10px;
+}
+
+.pl-table td {
+  padding: 10px;
+}
+
+.pl-img {
+  width: 48px;
+  height: 48px;
+}
+
+.pl-actions {
+  gap: 10px;
+}
+
+.pl-pager {
+  margin-top: 16px;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .dyn-content .admin-page {
+    padding: 12px;
+  }
+
+  .admin-form,
+  .admin-form .admin-section,
+  .product-card,
+  .pl-box {
+    padding: 12px;
+  }
+}
+/* ===== Admin Panel Font Sizes ===== */
+
+.admin-page {
+  font-size: 16px;
+}
+
+.admin-header h1,
+.pl-heading {
+  font-size: 32px;
+}
+
+.admin-header p {
+  font-size: 16px;
+}
+
+.admin-card h2,
+.admin-section h2 {
+  font-size: 23px;
+}
+
+.admin-card p {
+  font-size: 32px;
+}
+
+.admin-field label {
+  font-size: 16px;
+}
+
+.admin-field input,
+.admin-field select,
+.admin-field textarea {
+  font-size: 16px;
+}
+
+.product-card h3 {
+  font-size: 20px;
+}
+
+.product-card input,
+.product-card textarea {
+  font-size: 16px;
+}
+
+.pl-table th,
+.pl-table td {
+  font-size: 16px;
+}
+
+.pl-title {
+  font-size: 17px;
+}
+
+.pl-status {
+  font-size: 15px;
+}
+
+.pl-filters input,
+.pl-filters select {
+  font-size: 16px;
+}
+
+.custom-dropdown-trigger,
+.custom-dropdown-option {
+  font-size: 16px;
+}

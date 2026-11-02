@@ -77,7 +77,6 @@ export default function AddProductPage() {
   const [ctaHeading, setCtaHeading] = useState("");
   const [ctaDescription, setCtaDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [discountPrice, setDiscountPrice] = useState("");
   const [accordions, setAccordions] = useState<AccordionItem[]>([]);
   const [carouselImages, setCarouselImages] = useState<ProductImage[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -101,7 +100,6 @@ export default function AddProductPage() {
     setCtaHeading("");
     setCtaDescription("");
     setPrice("");
-    setDiscountPrice("");
     setAccordions([]);
     setCarouselImages([]);
   }
@@ -154,9 +152,6 @@ export default function AddProductPage() {
       setCtaHeading(p.ctaHeading ?? "");
       setCtaDescription(p.ctaDescription ?? "");
       setPrice(typeof p.price === "number" ? String(p.price) : "");
-      setDiscountPrice(
-        typeof p.discountPrice === "number" ? String(p.discountPrice) : ""
-      );
       setAccordions(
         (p.accordions ?? []).map((a) => ({
           title: a.title,
@@ -258,24 +253,6 @@ export default function AddProductPage() {
       return;
     }
 
-    if (
-      discountPrice.trim() !== "" &&
-      (!Number.isFinite(Number(discountPrice)) ||
-        Number(discountPrice) < 0)
-    ) {
-      setMessage("Discount Price cannot be negative or invalid.");
-      return;
-    }
-
-    if (
-      price.trim() !== "" &&
-      discountPrice.trim() !== "" &&
-      Number(discountPrice) >= Number(price)
-    ) {
-      setMessage("Discount Price must be lower than Price.");
-      return;
-    }
-
     if (ctaDescription.length > 256) {
       setMessage("CTA Description cannot exceed 256 characters.");
       return;
@@ -326,8 +303,6 @@ export default function AddProductPage() {
         ctaHeading: ctaHeading.trim(),
         ctaDescription: ctaDescription.trim(),
         price: price.trim() === "" ? null : Number(price),
-        discountPrice:
-          discountPrice.trim() === "" ? null : Number(discountPrice),
         accordions: accordions.map((item) => ({
           title: item.title.trim(),
           content: item.content.trim(),
@@ -375,8 +350,7 @@ export default function AddProductPage() {
       setCtaHeading("");
       setCtaDescription("");
       setPrice("");
-      setDiscountPrice("");
-      setAccordions([]);
+        setAccordions([]);
       setCarouselImages([]);
 
       const imageInput =
@@ -713,18 +687,6 @@ export default function AddProductPage() {
                 />
               </div>
 
-              <div className="admin-field">
-                <label htmlFor="discountPrice">Discount Price</label>
-                <input
-                  id="discountPrice"
-                  type="number"
-                  min="0"
-                  step="0.01"
-                  value={discountPrice}
-                  onChange={(e) => setDiscountPrice(e.target.value)}
-                  placeholder="Enter discount price (optional)"
-                />
-              </div>
             </div>
           </section>
 

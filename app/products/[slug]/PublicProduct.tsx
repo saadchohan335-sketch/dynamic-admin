@@ -18,7 +18,6 @@ type Product = {
   ctaHeading?: string;
   ctaDescription?: string;
   price?: number | null;
-  discountPrice?: number | null;
   accordions?: { title: string; content: string }[];
   carouselImages?: ProductImage[];
 };
@@ -52,15 +51,6 @@ export default function PublicProduct({ slug }: { slug: string }) {
     .map((i) => i.dataUrl || i.url || "")
     .filter(Boolean);
   const hasPrice = typeof product?.price === "number";
-  const hasDiscount = typeof product?.discountPrice === "number";
-  const percentOff =
-    hasPrice && hasDiscount && (product!.price as number) > 0
-      ? Math.round(
-          (1 -
-            (product!.discountPrice as number) / (product!.price as number)) *
-            100
-        )
-      : 0;
 
   return (
     <main className="min-h-screen bg-violet-50 text-gray-900">
@@ -191,25 +181,11 @@ export default function PublicProduct({ slug }: { slug: string }) {
                   </span>
                 </div>
 
-                {(hasPrice || hasDiscount) && (
-                  <div className="mt-5 flex flex-wrap items-center gap-3">
+                {hasPrice && (
+                  <div className="mt-5">
                     <span className="text-3xl font-bold text-indigo-950">
-                      {formatPrice(
-                        (hasDiscount
-                          ? product.discountPrice
-                          : product.price) as number
-                      )}
+                      {formatPrice(product.price as number)}
                     </span>
-                    {hasDiscount && hasPrice && (
-                      <span className="text-lg text-gray-400 line-through">
-                        {formatPrice(product.price as number)}
-                      </span>
-                    )}
-                    {percentOff > 0 && (
-                      <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
-                        {percentOff}% OFF
-                      </span>
-                    )}
                   </div>
                 )}
 

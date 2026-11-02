@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -22,7 +23,6 @@ type Product = {
   description: string;
   status: ProductStatus;
   price?: number | null;
-  discountPrice?: number | null;
   carouselImages?: ProductImage[];
 };
 
@@ -116,8 +116,6 @@ export default function Home() {
               const firstImage = product.carouselImages?.[0];
               const imageSrc = firstImage?.dataUrl || firstImage?.url || "";
               const hasPrice = typeof product.price === "number";
-              const hasDiscount =
-                typeof product.discountPrice === "number";
 
               return (
                 <Link
@@ -151,20 +149,9 @@ export default function Home() {
                       {product.description}
                     </p>
 
-                    {(hasPrice || hasDiscount) && (
+                    {hasPrice && (
                       <p className="mt-4 text-lg font-bold text-indigo-950">
-                        {hasDiscount ? (
-                          <>
-                            {formatPrice(product.discountPrice as number)}
-                            {hasPrice && (
-                              <span className="ml-2 text-sm font-normal text-gray-400 line-through">
-                                {formatPrice(product.price as number)}
-                              </span>
-                            )}
-                          </>
-                        ) : (
-                          formatPrice(product.price as number)
-                        )}
+                        {formatPrice(product.price as number)}
                       </p>
                     )}
 

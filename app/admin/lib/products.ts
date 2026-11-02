@@ -15,7 +15,7 @@ export type Product = {
   ctaHeading?: string;
   ctaDescription?: string;
   price?: number | null;
-  discountPrice?: number | null;
+ 
   accordions?: {
     title: string;
     content: string;

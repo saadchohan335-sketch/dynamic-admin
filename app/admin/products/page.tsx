@@ -44,14 +44,7 @@ export default function ProductsPage() {
   }
 
   function getPrice(p: Product) {
-    const item = p as unknown as { price?: number | null };
-    return typeof item.price === "number" ? item.price : null;
-  }
-
-  function getDiscountPrice(p: Product) {
-    return typeof p.discountPrice === "number"
-      ? p.discountPrice
-      : null;
+    return typeof p.price === "number" ? p.price : null;
   }
 
   function getImage(p: Product) {
@@ -144,7 +137,6 @@ export default function ProductsPage() {
               }}
             />
 
-            {/* Product Type Filter */}
             <div className="pl-filter-group">
               <div className="pl-filter-item">
                 <select
@@ -155,14 +147,9 @@ export default function ProductsPage() {
                     setSelectedIds([]);
                   }}
                 >
-                  <option value="" hidden>
-                    Product Type
-                  </option>
-
+                  <option value="" hidden>Product Type</option>
                   {types.map((t) => (
-                    <option key={t} value={t}>
-                      {t}
-                    </option>
+                    <option key={t} value={t}>{t}</option>
                   ))}
                 </select>
 
@@ -182,7 +169,6 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Category Filter */}
             <div className="pl-filter-group">
               <div className="pl-filter-item">
                 <select
@@ -193,14 +179,9 @@ export default function ProductsPage() {
                     setSelectedIds([]);
                   }}
                 >
-                  <option value="" hidden>
-                    Category
-                  </option>
-
+                  <option value="" hidden>Category</option>
                   {categories.map((c) => (
-                    <option key={c} value={c}>
-                      {c}
-                    </option>
+                    <option key={c} value={c}>{c}</option>
                   ))}
                 </select>
 
@@ -220,7 +201,6 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Status Filter */}
             <div className="pl-filter-group">
               <div className="pl-filter-item">
                 <select
@@ -231,10 +211,7 @@ export default function ProductsPage() {
                     setSelectedIds([]);
                   }}
                 >
-                  <option value="" hidden>
-                    Status
-                  </option>
-
+                  <option value="" hidden>Status</option>
                   <option value="published">Published</option>
                   <option value="draft">Draft</option>
                 </select>
@@ -285,7 +262,6 @@ export default function ProductsPage() {
                   {visible.map((p) => {
                     const img = getImage(p);
                     const price = getPrice(p);
-                    const discountPrice = getDiscountPrice(p);
 
                     return (
                       <tr key={p.id}>
@@ -310,7 +286,6 @@ export default function ProductsPage() {
                             ) : (
                               <div className="pl-img pl-img-empty" />
                             )}
-
                             <span className="pl-title">{p.title}</span>
                           </div>
                         </td>
@@ -319,43 +294,7 @@ export default function ProductsPage() {
                         <td>{p.category || "-"}</td>
                         <td>{p.subCategory || "-"}</td>
 
-                        <td>
-                          {price !== null ? (
-                            discountPrice !== null &&
-                            discountPrice < price ? (
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "3px",
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    textDecoration: "line-through",
-                                    color: "#9ca3af",
-                                    fontSize: "13px",
-                                  }}
-                                >
-                                  {price}
-                                </span>
-
-                                <span
-                                  style={{
-                                    color: "#7c22ff",
-                                    fontWeight: 600,
-                                  }}
-                                >
-                                  {discountPrice}
-                                </span>
-                              </div>
-                            ) : (
-                              price
-                            )
-                          ) : (
-                            "-"
-                          )}
-                        </td>
+                        <td>{price !== null ? price : "-"}</td>
 
                         <td>
                           <span
@@ -477,7 +416,6 @@ export default function ProductsPage() {
         <div className="pl-overlay">
           <div className="pl-modal">
             <h3>Delete Product?</h3>
-
             <p>
               Are you sure you want to delete{" "}
               <strong>{toDelete.title}</strong>?
