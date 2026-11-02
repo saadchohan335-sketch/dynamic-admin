@@ -48,6 +48,12 @@ export default function ProductsPage() {
     return typeof item.price === "number" ? item.price : null;
   }
 
+  function getDiscountPrice(p: Product) {
+    return typeof p.discountPrice === "number"
+      ? p.discountPrice
+      : null;
+  }
+
   function getImage(p: Product) {
     const item = p as unknown as {
       carouselImages?: { dataUrl?: string; url?: string }[];
@@ -138,50 +144,116 @@ export default function ProductsPage() {
               }}
             />
 
-            <select
-              value={typeFilter}
-              onChange={(e) => {
-                setTypeFilter(e.target.value);
-                setPage(1);
-                setSelectedIds([]);
-              }}
-            >
-              <option value="">Product Type</option>
-              {types.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
+            {/* Product Type Filter */}
+            <div className="pl-filter-group">
+              <div className="pl-filter-item">
+                <select
+                  value={typeFilter}
+                  onChange={(e) => {
+                    setTypeFilter(e.target.value);
+                    setPage(1);
+                    setSelectedIds([]);
+                  }}
+                >
+                  <option value="" hidden>
+                    Product Type
+                  </option>
 
-            <select
-              value={categoryFilter}
-              onChange={(e) => {
-                setCategoryFilter(e.target.value);
-                setPage(1);
-                setSelectedIds([]);
-              }}
-            >
-              <option value="">Category</option>
-              {categories.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+                  {types.map((t) => (
+                    <option key={t} value={t}>
+                      {t}
+                    </option>
+                  ))}
+                </select>
 
-            <select
-              value={statusFilter}
-              onChange={(e) => {
-                setStatusFilter(e.target.value);
-                setPage(1);
-                setSelectedIds([]);
-              }}
-            >
-              <option value="">Status</option>
-              <option value="published">Published</option>
-              <option value="draft">Draft</option>
-            </select>
+                {typeFilter && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setTypeFilter("");
+                      setPage(1);
+                      setSelectedIds([]);
+                    }}
+                    aria-label="Clear product type"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Category Filter */}
+            <div className="pl-filter-group">
+              <div className="pl-filter-item">
+                <select
+                  value={categoryFilter}
+                  onChange={(e) => {
+                    setCategoryFilter(e.target.value);
+                    setPage(1);
+                    setSelectedIds([]);
+                  }}
+                >
+                  <option value="" hidden>
+                    Category
+                  </option>
+
+                  {categories.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+
+                {categoryFilter && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setCategoryFilter("");
+                      setPage(1);
+                      setSelectedIds([]);
+                    }}
+                    aria-label="Clear category"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Status Filter */}
+            <div className="pl-filter-group">
+              <div className="pl-filter-item">
+                <select
+                  value={statusFilter}
+                  onChange={(e) => {
+                    setStatusFilter(e.target.value);
+                    setPage(1);
+                    setSelectedIds([]);
+                  }}
+                >
+                  <option value="" hidden>
+                    Status
+                  </option>
+
+                  <option value="published">Published</option>
+                  <option value="draft">Draft</option>
+                </select>
+
+                {statusFilter && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setStatusFilter("");
+                      setPage(1);
+                      setSelectedIds([]);
+                    }}
+                    aria-label="Clear status"
+                  >
+                    ×
+                  </button>
+                )}
+              </div>
+            </div>
           </div>
 
           {visible.length === 0 ? (
@@ -213,6 +285,7 @@ export default function ProductsPage() {
                   {visible.map((p) => {
                     const img = getImage(p);
                     const price = getPrice(p);
+                    const discountPrice = getDiscountPrice(p);
 
                     return (
                       <tr key={p.id}>
@@ -238,16 +311,51 @@ export default function ProductsPage() {
                               <div className="pl-img pl-img-empty" />
                             )}
 
-                            <span className="pl-title">
-                              {p.title}
-                            </span>
+                            <span className="pl-title">{p.title}</span>
                           </div>
                         </td>
 
                         <td>{p.productType || "-"}</td>
                         <td>{p.category || "-"}</td>
                         <td>{p.subCategory || "-"}</td>
-                        <td>{price !== null ? price : "-"}</td>
+
+                        <td>
+                          {price !== null ? (
+                            discountPrice !== null &&
+                            discountPrice < price ? (
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  gap: "3px",
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    textDecoration: "line-through",
+                                    color: "#9ca3af",
+                                    fontSize: "13px",
+                                  }}
+                                >
+                                  {price}
+                                </span>
+
+                                <span
+                                  style={{
+                                    color: "#7c22ff",
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  {discountPrice}
+                                </span>
+                              </div>
+                            ) : (
+                              price
+                            )
+                          ) : (
+                            "-"
+                          )}
+                        </td>
 
                         <td>
                           <span
