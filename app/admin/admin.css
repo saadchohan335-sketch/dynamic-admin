@@ -1,10 +1,10 @@
-
 /* ===== Base ===== */
 .admin-page {
-  padding: 32px 16px;
+  padding: 16px 20px;
   background: #f5f3ff;
   color: #111827;
   font-family: Arial, sans-serif;
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -21,13 +21,13 @@
 }
 
 .admin-header {
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .admin-header h1 {
-  margin: 0 0 8px;
+  margin: 0 0 4px;
   color: #1e1b4b;
-  font-size: 30px;
+  font-size: 32px;
   line-height: 1.3;
   font-weight: 700;
 }
@@ -35,7 +35,7 @@
 .admin-header p {
   margin: 0;
   color: #6b7280;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -46,6 +46,7 @@
   margin-bottom: 28px;
 }
 
+/* ===== Cards / Sections ===== */
 .admin-card,
 .admin-form,
 .admin-section,
@@ -64,7 +65,7 @@
 .admin-section h2 {
   margin: 0 0 20px;
   color: #1e1b4b;
-  font-size: 21px;
+  font-size: 23px;
   line-height: 1.4;
   font-weight: 600;
 }
@@ -72,26 +73,26 @@
 .admin-card p {
   margin: 0;
   color: #7c22ff;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
 }
 
-/* Compact Add Product form spacing */
+/* Add / Edit Product form (compact) */
 .admin-form {
-  padding: 18px;
-  margin-bottom: 16px;
+  padding: 12px;
+  margin-bottom: 10px;
 }
 
 .admin-form .admin-section {
-  padding: 16px;
-  margin-bottom: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
 }
 
 .admin-form .admin-section h2 {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-/* ===== Form ===== */
+/* ===== Form fields ===== */
 .classification-fields {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -114,7 +115,7 @@
 .admin-field label {
   margin-bottom: 5px;
   color: #374151;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -130,7 +131,7 @@
   background: #ffffff;
   color: #111827;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   outline: none;
 }
@@ -162,7 +163,7 @@
 
 .admin-divider {
   height: 0;
-  margin: 16px 0;
+  margin: 10px 0;
   border: 0;
   border-top: 1px solid #e5e7eb;
 }
@@ -184,9 +185,9 @@
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 20px;
-  padding-top: 20px;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
   border-top: 1px solid #e5e7eb;
 }
 
@@ -274,24 +275,25 @@ button:disabled {
 
 /* ===== Product details / edit card ===== */
 .product-card {
+  padding: 14px;
   margin-bottom: 0;
 }
 
 .product-card h3 {
   margin: 0 0 10px;
   color: #111827;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
 .product-card input,
 .product-card textarea {
   width: 100%;
-  padding: 12px;
-  margin: 8px 0 16px;
+  padding: 10px;
+  margin: 5px 0 10px;
   border: 1px solid #d7d2f5;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .product-card input[type="file"] {
@@ -370,7 +372,7 @@ button:disabled {
   transform: scale(1.08);
 }
 
-/* ===== Layout: header + sidebar ===== */
+/* ===== Layout: header + sidebar (UNCHANGED) ===== */
 .dyn-shell {
   min-height: 100vh;
   background: #f5f3ff;
@@ -449,22 +451,22 @@ button:disabled {
 }
 
 .dyn-content .admin-container {
-  max-width: 1100px;
+  max-width: none;
   margin: 0;
 }
 
-/* ===== Products table ===== */
+/* ===== Products List ===== */
 .pl-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
 }
 
 .pl-heading {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
   color: #1e1b4b;
 }
@@ -473,13 +475,13 @@ button:disabled {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 16px;
-  padding: 24px;
+  padding: 14px;
 }
 
 .pl-filters {
   display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 8px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
 }
 
@@ -490,7 +492,7 @@ button:disabled {
   border-radius: 10px;
   background: #ffffff;
   color: #111827;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .pl-search {
@@ -509,16 +511,16 @@ button:disabled {
 }
 
 .pl-table th {
-  padding: 18px 12px;
+  padding: 12px 10px;
   text-align: left;
-  font-size: 15px;
+  font-size: 16px;
   color: #1e1b4b;
   border-bottom: 1px solid #e5e7eb;
 }
 
 .pl-table td {
-  padding: 14px 12px;
-  font-size: 14px;
+  padding: 10px;
+  font-size: 16px;
   color: #374151;
   border-bottom: 1px solid #f1f1f5;
   vertical-align: middle;
@@ -535,8 +537,8 @@ button:disabled {
 }
 
 .pl-img {
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 10px;
@@ -549,6 +551,7 @@ button:disabled {
 }
 
 .pl-title {
+  font-size: 17px;
   font-weight: 700;
   color: #1e1b4b;
   text-decoration: none;
@@ -564,7 +567,7 @@ button:disabled {
   gap: 8px;
   padding: 6px 14px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
@@ -597,7 +600,7 @@ button:disabled {
 .pl-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 10px;
 }
 
 .pl-icon {
@@ -633,7 +636,7 @@ button:disabled {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 16px;
   flex-wrap: wrap;
 }
 
@@ -711,65 +714,7 @@ button:disabled {
   box-shadow: 0 5px 12px rgb(220 38 38 / 20%);
 }
 
-/* ===== Mobile ===== */
-@media (max-width: 700px) {
-  .admin-page {
-    padding: 22px 12px;
-  }
-
-  .admin-grid,
-  .classification-fields,
-  .basic-fields {
-    grid-template-columns: 1fr;
-  }
-
-  .admin-card,
-  .admin-form,
-  .admin-section,
-  .product-card {
-    padding: 18px;
-  }
-
-  .admin-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .save-draft-button,
-  .publish-button,
-  .toggle-status-button {
-    width: 100%;
-  }
-
-  .dyn-sidebar {
-    display: none;
-  }
-
-  .dyn-header {
-    padding: 0 20px;
-  }
-
-  .pl-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .pl-heading {
-    font-size: 24px;
-  }
-
-  .edit-images {
-    gap: 12px;
-  }
-
-  .edit-image-item {
-    width: 125px;
-    height: 115px;
-  }
-}
-
-
-
+/* ===== Filter select with clear button ===== */
 .pl-filter-group {
   display: flex;
   flex-direction: column;
@@ -797,7 +742,7 @@ button:disabled {
   border: 1px solid #d1d5db;
   border-radius: 9px;
   color: #374151;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   outline: none;
   cursor: pointer;
@@ -812,6 +757,7 @@ button:disabled {
   border-color: #7c3aed;
   box-shadow: 0 0 0 5px rgba(124, 58, 237, 0.25);
 }
+
 .pl-filter-item select option {
   background: #ffffff;
   color: #374151;
@@ -844,8 +790,7 @@ button:disabled {
   color: #111827;
 }
 
-/* Custom Dropdown */
-
+/* ===== Custom Dropdown ===== */
 .custom-dropdown {
   position: relative;
   width: 100%;
@@ -868,7 +813,7 @@ button:disabled {
   border: 1px solid #d1d5db;
   border-radius: 9px;
   color: #374151;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   cursor: pointer;
   outline: none;
@@ -945,7 +890,7 @@ button:disabled {
   border-radius: 7px;
   background: transparent;
   color: #374151;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   transition: all 0.18s ease;
 }
@@ -976,175 +921,57 @@ button:disabled {
     transform: translateY(0);
   }
 }
-/* ===== Compact Admin Pages ===== */
 
-/* Admin content ko corners ke qareeb lana */
-.dyn-content .admin-page {
-  padding: 16px 20px;
-}
-
-.dyn-content .admin-container {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-}
-
-/* Headers ki extra spacing kam */
-.admin-header {
-  margin-bottom: 14px;
-}
-
-.admin-header h1 {
-  margin-bottom: 4px;
-}
-
-/* Add Product aur Edit Product */
-.admin-form {
-  padding: 12px;
-  margin-bottom: 10px;
-}
-
-.admin-form .admin-section {
-  padding: 12px;
-  margin-bottom: 8px;
-}
-
-.admin-form .admin-section h2 {
-  margin-bottom: 8px;
-}
-
-.admin-divider {
-  margin: 10px 0;
-}
-
-/* Edit Product card */
-.product-card {
-  padding: 14px;
-}
-
-.product-card input,
-.product-card textarea {
-  margin: 5px 0 10px;
-  padding: 10px;
-}
-
-/* Buttons ki extra spacing */
-.admin-actions {
-  margin-top: 12px;
-  padding-top: 12px;
-  gap: 8px;
-}
-
-/* Products List */
-.pl-header {
-  margin-bottom: 12px;
-}
-
-.pl-box {
-  padding: 14px;
-}
-
-.pl-filters {
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-.pl-table th {
-  padding: 12px 10px;
-}
-
-.pl-table td {
-  padding: 10px;
-}
-
-.pl-img {
-  width: 48px;
-  height: 48px;
-}
-
-.pl-actions {
-  gap: 10px;
-}
-
-.pl-pager {
-  margin-top: 16px;
-}
-
-/* Mobile */
+/* ===== Mobile (single block, keep at END of file) ===== */
 @media (max-width: 700px) {
-  .dyn-content .admin-page {
+  .admin-page {
     padding: 12px;
   }
 
+  .admin-grid,
+  .classification-fields,
+  .basic-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-card,
   .admin-form,
-  .admin-form .admin-section,
+  .admin-section,
   .product-card,
   .pl-box {
     padding: 12px;
   }
-}
-/* ===== Admin Panel Font Sizes ===== */
 
-.admin-page {
-  font-size: 16px;
-}
+  .admin-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
 
-.admin-header h1,
-.pl-heading {
-  font-size: 32px;
-}
+  .save-draft-button,
+  .publish-button,
+  .toggle-status-button {
+    width: 100%;
+  }
 
-.admin-header p {
-  font-size: 16px;
-}
+  .dyn-sidebar {
+    display: none;
+  }
 
-.admin-card h2,
-.admin-section h2 {
-  font-size: 23px;
-}
+  .dyn-header {
+    padding: 0 20px;
+  }
 
-.admin-card p {
-  font-size: 32px;
-}
+  .pl-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.admin-field label {
-  font-size: 16px;
-}
+  .edit-images {
+    gap: 12px;
+  }
 
-.admin-field input,
-.admin-field select,
-.admin-field textarea {
-  font-size: 16px;
-}
-
-.product-card h3 {
-  font-size: 20px;
-}
-
-.product-card input,
-.product-card textarea {
-  font-size: 16px;
-}
-
-.pl-table th,
-.pl-table td {
-  font-size: 16px;
-}
-
-.pl-title {
-  font-size: 17px;
-}
-
-.pl-status {
-  font-size: 15px;
-}
-
-.pl-filters input,
-.pl-filters select {
-  font-size: 16px;
-}
-
-.custom-dropdown-trigger,
-.custom-dropdown-option {
-  font-size: 16px;
+  .edit-image-item {
+    width: 125px;
+    height: 115px;
+  }
 }
