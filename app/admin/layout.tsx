@@ -20,10 +20,10 @@ export default function AdminLayout({
 
       <div className="dyn-body">
         <aside className="dyn-sidebar">
-          <Link href="/products" className="dyn-nav-link">
+          <Link href="/admin/products" className="dyn-nav-link">
             Products
           </Link>
-          <Link href="/add-product" className="dyn-nav-link">
+          <Link href="/admin/add-product" className="dyn-nav-link">
             Add Product
           </Link>
         </aside>
